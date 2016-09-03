@@ -10,7 +10,6 @@ public class Player {
 	int slapKeyCode;
 	int playerNumber;
 	
-	
 	public Player(int flipKey, int slapKey, int playerNumber) {
 		hand = new ArrayList<Card>();
 		flipKeyCode = flipKey;
@@ -18,7 +17,7 @@ public class Player {
 		this.playerNumber = playerNumber;
 	}
 	
-	void flip() {//TODO flip and slap should redraw screen
+	void flip() {
 		if (hand.size() > 0) {
 			CardSlap.game.deck.add(0, hand.remove(0));
 		}
@@ -30,11 +29,13 @@ public class Player {
 		hand.addAll(CardSlap.game.deck);
 		CardSlap.game.deck.clear();
 		CardSlap.game.redraw();
+		CardSlap.game.faceCardChances = 0;
 	}
 	
 	void addCards(Card card) {
 		hand.add(hand.size(), card);
 	}
+	
 	void addCards(ArrayList<Card> cards) {
 		hand.addAll(hand.size(), cards);
 	}
@@ -42,13 +43,13 @@ public class Player {
 	int getCardCount() {
 		return hand.size();
 	}
-	void invalidSlap(){
+	
+	void invalidSlap() {
 		try {
 			CardSlap.game.deck.add(hand.remove(0));
-		} catch (Exception e) {}
-		
+		} catch (Exception e) {
+		}
 		
 	}
-	
 	
 }

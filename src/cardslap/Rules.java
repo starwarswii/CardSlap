@@ -1,25 +1,21 @@
 package cardslap;
 
 public class Rules {
-
 	
 	public static boolean isValidSlap() {
 		try {
-			if(pair()){
+			if (pair()) {
 				return true;
-			}
-			else if(sandwich()){
+			} else if (sandwich()) {
 				return true;
-			}
-			else if(sameSuit()){
+			} else if (sameSuit()) {
 				return true;
 			}
 			
-		} catch (Exception e) {}
+		} catch (Exception e) {
+		}
 		return false;
 	}
-	
-	
 	
 	static boolean pair() {
 		if (CardSlap.game.deck.get(0).value == CardSlap.game.deck.get(1).value)
@@ -35,42 +31,44 @@ public class Rules {
 			return false;
 	}
 	
-	static boolean sameSuit(){
-		if(checkSuit()){
+	static boolean sameSuit() {
+		if (checkSuit()) {
 			return true;
-		}
-		else{
+		} else {
 			return false;
 		}
 	}
-
-	static private boolean checkSuit(){
-		if(CardSlap.game.deck.get(0).suit == CardSlap.game.deck.get(1).suit){
-			if(CardSlap.game.deck.get(1).suit == CardSlap.game.deck.get(2).suit){
+	
+	static private boolean checkSuit() {
+		if (CardSlap.game.deck.get(0).suit == CardSlap.game.deck.get(1).suit) {
+			if (CardSlap.game.deck.get(1).suit == CardSlap.game.deck.get(2).suit) {
 				return true;
-			}
-			else{
+			} else {
 				return false;
 			}
-		}
-		else{
+		} else {
 			return false;
 		}
 	}
 	
 	static int getFaceCardValue() {
-		switch (CardSlap.game.deck.get(0).value) {
-		case 1:
-			return 4;
-		case 11:
-			return 1;
-		case 10:
-			return 2;
-		case 13:
-			return 3;
-		default:
+		try {
+			switch (CardSlap.game.deck.get(0).value) {
+			case 1:
+				return 4;
+			case 11:
+				return 1;
+			case 12:
+				return 2;
+			case 13:
+				return 3;
+			default:
+				return -1;
+			}
+		} catch (Exception e) {
 			return -1;
 		}
+		
 	}
-	 
+	
 }

@@ -14,10 +14,9 @@ public enum Suit {
 	Suit(int suit) {
 		this.suit = suit;
 	}
-
 	
 	public Color getColor() {
-		if (ordinal() == 0 || ordinal() == 2){
+		if (ordinal() == 0 || ordinal() == 2) {
 			return Color.RED;
 		} else {
 			return Color.BLACK;

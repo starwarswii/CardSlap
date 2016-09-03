@@ -9,6 +9,5 @@ public class Card {
 		this.value = value;
 		this.suit = suit;
 	}
-
 	
 }
